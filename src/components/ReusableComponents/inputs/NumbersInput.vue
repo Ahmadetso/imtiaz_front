@@ -8,7 +8,7 @@ defineProps({
 </script>
 <template>
   <FloatLabel variant="on">
-    <InputNumber v-model="value1" inputId="integeronly" fluid />
+    <InputNumber inputId="integeronly" fluid />
     <label for="on_label">{{ label }}</label>
   </FloatLabel>
 </template>

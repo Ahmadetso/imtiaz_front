@@ -7,7 +7,7 @@ defineProps({
 </script>
 <template>
   <div class="flex">
-    <ToggleSwitch v-model="checked" />
+    <ToggleSwitch />
     <label
       for="default-checkbox"
       class="ms-2 text-sm font-medium text-gray-900 dark:text-DarkThemeText"

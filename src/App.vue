@@ -7,6 +7,7 @@ import MainContent from './components/ContentComponents/MainContent.vue'
   <main class="flex size-full" dir="rtl">
     <side-bar />
     <MainContent />
+
   </main>
 </template>
 

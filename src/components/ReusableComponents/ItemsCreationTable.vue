@@ -1,18 +1,18 @@
 <script setup>
 import NumbersInput from './inputs/NumbersInput.vue'
 import TextInput from './inputs/TextInput.vue'
-import DropdownInput from './inputs/DropdownInput.vue'
 import IconPlus from '../icons/IconPlus.vue'
 import IconDelete from '../icons/IconDelete.vue'
 import PrimaryButton from './buttons/PrimaryButton.vue'
 import ButtonIcon from './buttons/ButtonIcon.vue'
+import AutoCompleteDropdown from './inputs/AutoCompleteDropdown.vue'
 </script>
 <template>
   <div class="overflow-x-auto sm:rounded-lg sm:rounded-b-none border-t">
     <!-- <table class="bg-white dark:bg-SideBarBlue border flex items-start">
-      <tbody class="text-black h-full dark:text-DarkThemeText">
-        <tr class="border h-full">
-          <ButtonIcon
+    <tbody class="text-black h-full dark:text-DarkThemeText">
+      <tr class="border h-full">
+        <ButtonIcon
             :icon="IconPlus"
             class="h-[68px]"
             style="border-radius: 0px 3px 0px 0px"
@@ -32,9 +32,7 @@ import ButtonIcon from './buttons/ButtonIcon.vue'
     <table class="w-full rtl:text-right text-left min-w-max">
       <thead>
         <tr class="divide-x">
-          <th
-            class="p-4 border-b border-l border-blue-gray-100 border-r bg-blue-gray-50"
-          >
+          <th class="p-4 border-b border-l border-blue-gray-100 border-r bg-blue-gray-50">
             <p class="block text-sm font-normal opacity-70">المنتج*</p>
           </th>
           <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
@@ -57,7 +55,7 @@ import ButtonIcon from './buttons/ButtonIcon.vue'
       <tbody>
         <tr class="divide-x divide-DarkThemeText">
           <td class="border border-blue-gray-50">
-            <dropdown-input label="اختر منتجاً*" />
+            <AutoCompleteDropdown class="h-full mx-2" label="اختر منتجا*" v-model="model" :items="customers" />
           </td>
           <td class="p-4 border-b border-blue-gray-50">
             <text-input class="" label="اضف وصفا" />
@@ -80,13 +78,8 @@ import ButtonIcon from './buttons/ButtonIcon.vue'
       </tbody>
     </table>
     <div dir="ltr">
-      <primary-button
-        dir="ltr"
-        label="بند"
-        style="border-radius: 0px 0px 3px 3px"
-        :icon="IconPlus"
-        class="h-10 w-[90px]"
-      />
+      <primary-button dir="ltr" label="بند" style="border-radius: 0px 0px 3px 3px" :icon="IconPlus"
+        class="h-10 w-[90px]" />
     </div>
   </div>
 

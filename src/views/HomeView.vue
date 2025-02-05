@@ -1,7 +1,14 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import SideBar from './components/SideBarComponents/SideBar.vue'
+import MainContent from './components/ContentComponents/MainContent.vue'
 </script>
 
 <template>
-  <main></main>
+  <main class="flex size-full" dir="rtl">
+    <side-bar />
+    <MainContent />
+
+  </main>
 </template>
+
+<style scoped></style>

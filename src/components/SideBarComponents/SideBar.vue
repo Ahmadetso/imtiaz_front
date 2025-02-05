@@ -18,29 +18,23 @@ import IconControlPanel from '../icons/IconControlPanel.vue'
 // defineProps([])
 </script>
 <template>
-  <aside
-    class="w-1/4 h-screen border-l border-SideBarTop bg-SideBarBlue shadow-sm flex flex-col gap-2"
-  >
+  <aside class="w-1/4 h-screen border-l border-SideBarTop bg-SideBarBlue shadow-sm flex flex-col gap-2">
     <div class="w-full h-10 bg-SideBarTop"></div>
 
     <SideBarSearch class="" />
-    <hr
-      class="h-[2px] w-full bg-gradient-to-l from-transparent via-SideBarTop to-trasparent border-0"
-    />
+    <hr class="h-[2px] w-full bg-gradient-to-l from-transparent via-SideBarTop to-trasparent border-0" />
 
     <SideBarOption :Icon="IconControlPanel" Name="لوحة التحكم" />
     <hr class="h-[2px] w-full bg-SideBarTop border-0" />
 
     <side-bar-dropdown Name="المبيعات" :Icon="IconSales">
-      <SideBarDropdownOption
-        Name="إدارة الفواتير"
-        -quick-create="إنشاء الفواتير"
-        -link-create="/invoice/create"
-        -link="/invoice/manage"
-      />
+      <SideBarDropdownOption Name="إدارة الفواتير" -quick-create="إنشاء الفواتير" -link-create="/invoice/create"
+        -link="/invoice/manage" />
     </side-bar-dropdown>
+  </aside>
+</template>
 
-    <!--
+<!--
     <side-bar-dropdown Name="المشتريات" :Icon="IconTruck">
       <side-bar-dropdown-option Name="فواتير الشراء" />
       <side-bar-dropdown-option Name="مرتجعات المشتريات" />
@@ -109,5 +103,3 @@ import IconControlPanel from '../icons/IconControlPanel.vue'
       <side-bar-dropdown-option -name="إدارة التطبيقات" />
       <side-bar-dropdown-option -name="تخصيص التطبيق" />
     </side-bar-dropdown> -->
-  </aside>
-</template>
