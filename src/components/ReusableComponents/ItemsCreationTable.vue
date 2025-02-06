@@ -1,6 +1,6 @@
 <script setup>
 import NumbersInput from './inputs/NumbersInput.vue'
-import TextInput from './inputs/TextInput.vue'
+import TextInputWithFloatLabel from './inputs/TextInputFloatLabel.vue'
 import IconPlus from '../icons/IconPlus.vue'
 import IconDelete from '../icons/IconDelete.vue'
 import PrimaryButton from './buttons/PrimaryButton.vue'
@@ -58,7 +58,7 @@ import AutoCompleteDropdown from './inputs/AutoCompleteDropdown.vue'
             <AutoCompleteDropdown class="h-full mx-2" label="اختر منتجا*" v-model="model" :items="customers" />
           </td>
           <td class="p-4 border-b border-blue-gray-50">
-            <text-input class="" label="اضف وصفا" />
+            <text-input-with-float-label class="" label="اضف وصفا" />
           </td>
           <td class="p-4 border-b border-blue-gray-50">
             <NumbersInput label="الكمية*" class="w-20" />

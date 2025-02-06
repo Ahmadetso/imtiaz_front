@@ -28,8 +28,9 @@ const search = event => {
 </script>
 
 <template>
-  <div class="card flex w-full items-center justify-center">
-    <FloatLabel variant="on">
+  <div class="flex items-center">
+
+  <FloatLabel variant="on">
       <AutoComplete
         v-model="model"
         optionLabel="name"
@@ -43,4 +44,4 @@ const search = event => {
   </div>
 </template>
 
-<style scoped></style>
+

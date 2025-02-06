@@ -1,9 +1,9 @@
 <script setup>
-import DatePicker from '@/components/ReusableComponents/inputs/DatePicker.vue'
+import DatePickerFloatLabel from '@/components/ReusableComponents/inputs/DatePickerFloatLabel.vue'
 import TextArea from '@/components/ReusableComponents/inputs/TextArea.vue'
 import CheckBox from '@/components/ReusableComponents/buttons/CheckBox.vue'
 import NumbersInput from '@/components/ReusableComponents/inputs/NumbersInput.vue'
-import TextInput from '@/components/ReusableComponents/inputs/TextInput.vue'
+import TextInputWithFloatLabel from '@/components/ReusableComponents/inputs/TextInputFloatLabel.vue'
 import IconPlus from '@/components/icons/IconPlus.vue'
 import IconDelete from '@/components/icons/IconDelete.vue'
 import PrimaryButton from '@/components/ReusableComponents/buttons/PrimaryButton.vue'
@@ -34,15 +34,10 @@ const customers = computed(() => invoices.value?.customers || [])
 
     <hr class="border-2" />
     <div class="flex justify-evenly">
-      <AutoCompleteDropdown
-        class="h-full mx-2"
-        label="العميل*"
-        v-model="model"
-        :items="customers"
-      />
-      <date-picker label="تاريخ الفاتورة*" />
+   
+      <date-picker-float-label label="تاريخ الفاتورة*" />
 
-      <date-picker label="تاريخ ألإستحقاق*" />
+      <date-picker-float-label label="تاريخ ألإستحقاق*" />
       <AutoCompleteDropdown
         class="h-full mx-2"
         label="العملة*"
@@ -89,7 +84,7 @@ const customers = computed(() => invoices.value?.customers || [])
               />
             </td>
             <td class="p-4 border-b border-blue-gray-50">
-              <text-input class="" label="اضف وصفا" />
+              <text-input-with-float-label class="" label="اضف وصفا" />
             </td>
             <td class="p-4 border-b border-blue-gray-50">
               <NumbersInput label="الكمية*" class="w-20" />

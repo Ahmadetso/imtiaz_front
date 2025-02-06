@@ -1,6 +1,6 @@
 <script setup>
 import NumbersInput from './inputs/NumbersInput.vue'
-import TextInput from './inputs/TextInput.vue'
+import TextInput from './inputs/TextInputFloatLabel.vue'
 import DropdownInput from './inputs/DropdownInput.vue'
 import { Button } from 'primevue'
 </script>

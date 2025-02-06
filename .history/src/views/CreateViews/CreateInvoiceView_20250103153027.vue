@@ -1,5 +1,5 @@
 <script setup>
-import DatePicker from '@/components/ReusableComponents/inputs/DatePicker.vue'
+import DatePickerFloatLabel from '@/components/ReusableComponents/inputs/DatePickerFloatLabel.vue'
 import DropdownInput from '@/components/ReusableComponents/inputs/DropdownInput.vue'
 import ItemsCreationTable from '@/components/ReusableComponents/ItemsCreationTable.vue'
 import TextArea from '@/components/ReusableComponents/inputs/TextArea.vue'
@@ -19,9 +19,9 @@ import IconPrinter from '@/components/icons/IconPrinter.vue'
     <hr class="h-[1.5px] my-2 w-full bg-SideBarTop border-0" />
     <div class="flex justify-evenly">
       <dropdown-input class="h-full mx-2" title="العميل" />
-      <date-picker title="تاريخ الفاتورة" />
+      <date-picker-float-label title="تاريخ الفاتورة" />
 
-      <date-picker title="تاريخ ألإستحقاق" />
+      <date-picker-float-label title="تاريخ ألإستحقاق" />
       <dropdown-input title="العملة"> </dropdown-input>
     </div>
     <hr class="border my-2" />

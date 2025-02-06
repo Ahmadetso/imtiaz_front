@@ -6,15 +6,17 @@ import Column from 'primevue/column'
 import Tag from 'primevue/tag'
 import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
-import Message from 'primevue/message'
 import { Form } from '@primevue/forms'
 import Select from 'primevue/select'
 import Paginator from 'primevue/paginator'
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
 import DatePicker from 'primevue/datepicker'
 import InputText from 'primevue/inputtext'
+import TextInputFloatLabel from '@/components/ReusableComponents/inputs/TextInputFloatLabel.vue'
+import AutoCompleteDropdown from '@/components/ReusableComponents/inputs/AutoCompleteDropdown.vue'
+import DatePickerFloatLabel from '@/components/ReusableComponents/inputs/DatePickerFloatLabel.vue'
 
-const visible = ref(false);
+const visible = ref(false)
 const invoices = ref([])
 const loading = ref(true)
 const meta = ref([])
@@ -69,30 +71,27 @@ const filters = ref({
 })
 
 const onPageChange = event => {
-   loadInvoices(event.page + 1)
+  loadInvoices(event.page + 1)
 }
 
 const loadInvoices = async (page = 1) => {
   try {
-    const data = await fetchInvoices(page);
-    invoices.value = data.data; // User data
-  meta.value = data.meta;
+    const data = await fetchInvoices(page)
+    invoices.value = data.data // User data
+    meta.value = data.meta
   } catch (error) {
-    console.error("Failed to load users", error);
+    console.error('Failed to load users', error)
   }
-};
+}
 
-onMounted( () => {
- loadInvoices()
+onMounted(() => {
+  loadInvoices()
   loading.value = false
-    // console.info(
-    //   '%cINFO%c Invoices are being fetched correctly.',
-    //   'color: white; background: #0066cc; padding: 2px 6px; border: 2px solid #003366; border-radius: 4px; font-weight: bold',
-    //   'color: #0066cc; padding-left: 6px; font-weight: normal',
-
-
+  // console.info(
+  //   '%cINFO%c Invoices are being fetched correctly.',
+  //   'color: white; background: #0066cc; padding: 2px 6px; border: 2px solid #003366; border-radius: 4px; font-weight: bold',
+  //   'color: #0066cc; padding-left: 6px; font-weight: normal',
 })
-
 </script>
 <template>
   <div class="">
@@ -100,27 +99,64 @@ onMounted( () => {
       :value="invoices"
       v-model:filters="filters"
       dataKey="id"
+      show-gridlines
       scrollable
-      scrollHeight="600px"
-
-
+      scrollHeight="580px"
+      removableSort
       :loading="loading"
       filterDisplay="menu"
-
       tableStyle="min-width: 50rem"
     >
-      <template #header>    <div class="card flex justify-center">
-        <Button label="البحث المتقدم" icon="" @click="visible = true" :style="{ width: '50rem' }" />
-        <Dialog v-model:visible="visible" modal :style="{ width: '50rem' }">
-          <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <div class="flex flex-col gap-1">
-              <InputText name="username" type="text" placeholder="Username" fluid />
-              <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error?.message }}</Message>
-            </div>
-            <Button type="submit" severity="secondary" label="Submit" />
-          </Form>
-        </Dialog>
-      </div></template>
+      <template #header>
+        <div class="card flex justify-center">
+          <Button
+            label="البحث المتقدم"
+            icon="pi pi-search"
+            @click="visible = true"
+            :style="{ width: '50rem' }"
+          />
+          <Dialog v-model:visible="visible" modal :style="{ width: '58rem' }">
+            <Form
+              v-slot="$form"
+              :initialValues
+              :resolver
+              @submit="onFormSubmit"
+              class="flex flex-col pt-2 gap-2 justify-center w-full"
+            >
+              <div class="grid grid-cols-3 gap-5 p-2 size-fit">
+
+                <AutoCompleteDropdown
+                  label="العميل"
+                  style="width: 17rem"
+                ></AutoCompleteDropdown>
+                <date-picker-float-label
+                  label="من تاريخ"
+                  style="width: 17rem"
+                ></date-picker-float-label>
+                <date-picker-float-label
+                  label="إلى تاريخ"
+                  style="width: 17rem"
+                ></date-picker-float-label>
+                <Select
+                  :options="statuses"
+                  placeholder="إختر عدد السطور المطلوبة"
+                  showClear
+                  style="width: 17rem"
+                ></Select>
+                <Select
+                  :options="statuses"
+                  placeholder="إختر حالة"
+                  showClear
+                  style="width: 17rem"
+                ></Select>
+
+
+              </div>
+              <Button type="submit" label="Submit" />
+            </Form>
+          </Dialog>
+        </div>
+      </template>
 
       <Column filterField="customer_name" header="العميل">
         <template #body="{ data }">
@@ -137,7 +173,13 @@ onMounted( () => {
           />
         </template>
       </Column>
-      <Column header="التاريخ" filterField="date" dataType="date">
+      <Column
+        header="التاريخ"
+        filterField="date"
+        field="date"
+        sortable
+        dataType="date"
+      >
         <template #body="{ data }">
           {{ formatDate(data.date) }}
         </template>
@@ -149,7 +191,13 @@ onMounted( () => {
           />
         </template>
       </Column>
-      <Column header="تاريخ الاستحقاق" filterField="date" dataType="date">
+      <Column
+        header="تاريخ الاستحقاق"
+        filterField="date"
+        field="due_date"
+        sortable
+        dataType="date"
+      >
         <template #body="{ data }">
           {{ formatDate(data.due_date) }}
         </template>

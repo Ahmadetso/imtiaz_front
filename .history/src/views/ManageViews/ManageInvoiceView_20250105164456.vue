@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { DataTable, Column } from 'primevue'
 import { fetchInvoices } from '@/api/api'
 import { FilterMatchMode } from '@primevue/core/api'
-import TextInput from '@/components/ReusableComponents/inputs/TextInput.vue'
+import TextInputWithFloatLabel from '@/components/ReusableComponents/inputs/TextInputFloatLabel.vue'
 import PrimaryButton from '@/components/ReusableComponents/buttons/PrimaryButton.vue'
 
 const invoices = ref([])
@@ -36,7 +36,7 @@ onMounted(async () => {
       :rows="7"
       filterDisplay="row"
     >
-      <template #header><text-input label="Search" /></template>
+      <template #header><text-input-with-float-label label="Search" /></template>
       <Column field="id" header="رمز التعريف">
         <template #body="slotProps"
           >INV-{{ slotProps.data.id.toString().padStart(5, '0') }}</template

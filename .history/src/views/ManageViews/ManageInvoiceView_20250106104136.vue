@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { DataTable, Column } from 'primevue'
 import { fetchInvoices } from '@/api/api'
 import { FilterMatchMode } from '@primevue/core/api'
-import TextInput from '@/components/ReusableComponents/inputs/TextInput.vue'
+import TextInputWithFloatLabel from '@/components/ReusableComponents/inputs/TextInputFloatLabel.vue'
 import PrimaryButton from '@/components/ReusableComponents/buttons/PrimaryButton.vue'
 
 const invoices = ref([])
@@ -47,7 +47,7 @@ onMounted(async () => {
         </FloatLabel> -->
         <div class="flex justify-between">
           <h4 class="text-white">إدارة الفواتير</h4>
-          <TextInput v-model="filters['global'].value" label="إبحث..." />
+          <TextInputWithFloatLabel v-model="filters['global'].value" label="إبحث..." />
         </div>
       </template>
       <Column field="id" header="رمز التعريف">

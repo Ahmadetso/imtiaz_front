@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { DataTable, Column } from 'primevue'
 import { fetchInvoices } from '@/api/api'
 import { FilterMatchMode } from '@primevue/core/api'
-import TextInput from '@/components/ReusableComponents/inputs/TextInput.vue'
+import TextInputWithFloatLabel from '@/components/ReusableComponents/inputs/TextInputFloatLabel.vue'
 import PrimaryButton from '@/components/ReusableComponents/buttons/PrimaryButton.vue'
 
 import FloatLabel from 'primevue'
@@ -43,7 +43,7 @@ onMounted(async () => {
         <FloatLabel variant="on">
           <InputText id="on_label" v-model="value3" />
           <label for="on_label">On Label</label> </FloatLabel
-        ><text-input v-model="filters['global'].value" label="Search"
+        ><text-input-with-float-label v-model="filters['global'].value" label="Search"
       /></template>
       <Column field="id" header="رمز التعريف">
         <template #body="slotProps"

@@ -1,6 +1,6 @@
 <script setup>
 import NumbersInput from './inputs/NumbersInput.vue'
-import TextInput from './inputs/TextInput.vue'
+import TextInput from './inputs/TextInputWithFloatLabel.vue'
 import DropdownInput from './inputs/DropdownInput.vue'
 import ButtonIcon from './buttons/ButtonIcon.vue'
 import IconPlus from '../icons/IconPlus.vue'

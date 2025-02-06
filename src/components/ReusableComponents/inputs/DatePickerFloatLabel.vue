@@ -7,9 +7,9 @@ defineProps({
 })
 </script>
 <template>
-  <div class="w-full flex items-center">
+  <div class="flex items-center">
     <FloatLabel variant="on">
-      <DatePicker inputId="on_label" showIcon iconDisplay="input" />
+      <DatePicker inputId="on_label" showIcon dateFormat="yy/mm/dd" iconDisplay="input" />
       <label for="on_label">{{ label }}</label>
     </FloatLabel>
   </div>

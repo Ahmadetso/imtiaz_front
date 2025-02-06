@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { DataTable, Column } from 'primevue'
 import { fetchInvoices } from '@/api/api'
 import { FilterMatchMode } from '@primevue/core/api'
-// import TextInput from '@/components/ReusableComponents/inputs/TextInput.vue'
+// import TextInputWithFloatLabel from '@/components/ReusableComponents/inputs/TextInputWithFloatLabel.vue'
 import PrimaryButton from '@/components/ReusableComponents/buttons/PrimaryButton.vue'
 
 import FloatLabel from 'primevue/floatlabel'
